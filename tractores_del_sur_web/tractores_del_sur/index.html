@@ -5,36 +5,938 @@
 <title>Tractores del Sur — Maquinaria agrícola</title>
 <style>
 :root{color-scheme:light dark;--bg:#f4f1e8;--surface:#fffdf8;--text:#182018;--muted:#687064;--green:#315b35;--green2:#1f4326;--gold:#c89b3c;--line:#ded9ca} 
-*{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text)}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text)}
 .root{min-height:100vh;background:var(--bg);}
-header{padding:22px clamp(20px,5vw,72px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:var(--surface);position:sticky;top:0;z-index:10}.brand{font-weight:900;font-size:20px;letter-spacing:-.5px}.brand span{color:var(--green)}nav{display:flex;gap:24px}nav a{color:var(--text);text-decoration:none;font-weight:650;font-size:14px}.contact{background:var(--green);color:white!important;padding:10px 15px;border-radius:10px}
-.hero{padding:72px clamp(20px,7vw,100px);display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:center;background:linear-gradient(120deg,#e9e5d6,#f7f4eb)}.eyebrow{color:var(--green);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:12px}.hero h1{font-size:clamp(42px,6vw,76px);line-height:.98;margin:12px 0 22px;letter-spacing:-3px}.hero p{font-size:18px;color:var(--muted);max-width:600px;line-height:1.6}.actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}.btn{display:inline-block;padding:14px 19px;border-radius:12px;text-decoration:none;font-weight:800;border:1px solid var(--line)}.primary{background:var(--green);color:white;border-color:var(--green)}.secondary{background:var(--surface);color:var(--text)}
-.tractor-art{height:340px;border-radius:24px;background:linear-gradient(145deg,#253a27,#55704b);position:relative;overflow:hidden;box-shadow:0 20px 60px #253a2730}.tractor-art:before{content:'🚜';font-size:180px;position:absolute;left:50%;top:50%;transform:translate(-50%,-45%);filter:drop-shadow(0 18px 8px #0005)}.tractor-art:after{content:'IMAGEN DE EJEMPLO';position:absolute;bottom:18px;right:18px;color:#ffffffaa;font-size:11px;letter-spacing:1.5px}
-section{padding:68px clamp(20px,7vw,100px)}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:28px}.section-head h2{font-size:36px;letter-spacing:-1.5px;margin:0}.section-head p{color:var(--muted);margin:0}.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}select,input{padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}.photo{height:190px;background:linear-gradient(135deg,#d8d5c8,#aab39e);display:grid;place-items:center;font-size:76px}.card-body{padding:19px}.tag{font-size:11px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:1px}.card h3{margin:7px 0;font-size:21px}.specs{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:13px}.price{font-size:22px;font-weight:900;margin:17px 0}.card button{width:100%;border:0;background:var(--green);color:white;padding:12px;border-radius:10px;font-weight:800;cursor:pointer}
-.about{background:var(--green2);color:white;display:grid;grid-template-columns:1fr 1fr;gap:50px}.about p{color:#dce5da;line-height:1.7}.points{display:grid;gap:14px}.point{border:1px solid #ffffff25;border-radius:14px;padding:18px;background:#ffffff0b}.point b{display:block;margin-bottom:5px}
-footer{padding:30px clamp(20px,7vw,100px);display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:13px;background:var(--surface)}
-.modal{position:fixed;inset:0;background:#0008;display:none;place-items:center;padding:20px;z-index:20}.modal.open{display:grid}.modal-box{max-width:620px;width:100%;background:var(--surface);border-radius:20px;padding:25px;position:relative}.close{position:absolute;right:16px;top:12px;background:none;border:0;color:var(--text);font-size:26px;cursor:pointer}.modal-box h2{margin-top:5px}.detail{display:grid;grid-template-columns:1fr 1fr;gap:10px}.detail div{padding:12px;border:1px solid var(--line);border-radius:10px}.detail small{display:block;color:var(--muted)}
-@media(max-width:800px){nav{display:none}.hero,.about{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.hero{padding-top:48px}.tractor-art{height:250px}.section-head{display:block}.section-head p{margin-top:8px}footer{display:block}footer div+div{margin-top:10px}}
-@media(prefers-color-scheme:dark){:root{--bg:#121611;--surface:#1b2019;--text:#eef2e9;--muted:#aeb8a9;--line:#30382e}.hero{background:linear-gradient(120deg,#182019,#121611)}.photo{background:linear-gradient(135deg,#30392e,#55624e)}}
-</style></head>
-<body><div class="root">
-<header><div class="brand">TRACTORES <span>DEL SUR</span></div><nav><a href="#catalogo">Maquinaria</a><a href="#empresa">Quiénes somos</a><a class="contact" href="#contacto">Contactar</a></nav></header>
+
+header{
+  padding:22px clamp(20px,5vw,72px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--line);
+  background:var(--surface);
+  position:sticky;
+  top:0;
+  z-index:10
+}
+.brand{font-weight:900;font-size:20px;letter-spacing:-.5px}
+.brand span{color:var(--green)}
+nav{display:flex;gap:24px}
+nav a{color:var(--text);text-decoration:none;font-weight:650;font-size:14px}
+.contact{background:var(--green);color:white!important;padding:10px 15px;border-radius:10px}
+
+.hero{
+  padding:72px clamp(20px,7vw,100px);
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:45px;
+  align-items:center;
+  background:linear-gradient(120deg,#e9e5d6,#f7f4eb)
+}
+.eyebrow{
+  color:var(--green);
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:12px
+}
+.hero h1{
+  font-size:clamp(42px,6vw,76px);
+  line-height:.98;
+  margin:12px 0 22px;
+  letter-spacing:-3px
+}
+.hero p{
+  font-size:18px;
+  color:var(--muted);
+  max-width:600px;
+  line-height:1.6
+}
+.actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{
+  display:inline-block;
+  padding:14px 19px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:800;
+  border:1px solid var(--line)
+}
+.primary{background:var(--green);color:white;border-color:var(--green)}
+.secondary{background:var(--surface);color:var(--text)}
+
+.tractor-art{
+  height:340px;
+  border-radius:0;
+  background:
+    linear-gradient(90deg,#eee8d9aa,#eee8d900),
+    url('https://commons.wikimedia.org/wiki/Special:FilePath/74-365%20The%20Big%20Green%20Tractor.jpg?width=1200')
+    center/cover no-repeat;
+  position:relative;
+  overflow:hidden;
+  box-shadow:none
+}
+.tractor-art:before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,#eee8d9 0%,#eee8d900 55%)
+}
+
+section{padding:34px clamp(20px,6vw,92px)}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:end;
+  margin-bottom:18px
+}
+.section-head h2{
+  font-size:37px;
+  letter-spacing:-1.5px;
+  margin:0
+}
+.section-head p{
+  color:var(--muted);
+  margin:5px 0 0;
+  font-size:17px
+}
+
+.filters{
+  display:grid;
+  grid-template-columns:1.35fr 1fr 1fr 1.2fr;
+  gap:10px;
+  flex:1;
+  margin-bottom:20px
+}
+.filters input,.filters select{
+  height:48px;
+  padding:0 14px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--surface);
+  color:var(--text);
+  font-size:14px
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px
+}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:13px;
+  overflow:hidden;
+  box-shadow:0 2px 8px #18201812
+}
+
+.photo{
+  height:182px;
+  background:#e8e5db;
+  overflow:hidden
+}
+.photo img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center
+}
+
+.card-body{padding:12px 15px 14px}
+.tag{
+  font-size:11px;
+  font-weight:800;
+  color:var(--green);
+  text-transform:uppercase;
+  letter-spacing:.8px
+}
+.card h3{
+  margin:5px 0 11px;
+  font-size:17px;
+  letter-spacing:-.3px
+}
+.specs{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  color:var(--muted);
+  font-size:12px
+}
+.price{
+  font-size:21px;
+  font-weight:900;
+  margin:11px 0 10px;
+  color:var(--green)
+}
+.card button{
+  width:100%;
+  border:0;
+  background:var(--green);
+  color:white;
+  padding:10px;
+  border-radius:9px;
+  font-weight:800;
+  cursor:pointer
+}
+
+.about{
+  background:var(--green2);
+  color:white;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px
+}
+.about p{color:#dce5da;line-height:1.7}
+.points{display:grid;gap:14px}
+.point{
+  border:1px solid #ffffff25;
+  border-radius:14px;
+  padding:18px;
+  background:#ffffff0b
+}
+.point b{display:block;margin-bottom:5px}
+
+footer{
+  padding:30px clamp(20px,7vw,100px);
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  color:var(--muted);
+  font-size:13px;
+  background:var(--surface)
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:#0008;
+  display:none;
+  place-items:center;
+  padding:20px;
+  z-index:20
+}
+.modal.open{display:grid}
+.modal-box{
+  max-width:620px;
+  width:100%;
+  background:var(--surface);
+  border-radius:20px;
+  padding:25px;
+  position:relative
+}
+.close{
+  position:absolute;
+  right:16px;
+  top:12px;
+  background:none;
+  border:0;
+  color:var(--text);
+  font-size:26px;
+  cursor:pointer
+}
+.modal-box h2{margin-top:5px}
+.detail{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px
+}
+.detail div{
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:10px
+}
+.detail small{
+  display:block;
+  color:var(--muted)
+}
+
+@media(max-width:1100px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .filters{grid-template-columns:1fr 1fr}
+  .hero{grid-template-columns:1fr}
+  .tractor-art{height:300px}
+}
+
+@media(max-width:650px){
+  nav{display:none}
+  .hero,.about{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .filters{grid-template-columns:1fr}
+  .hero{padding-top:44px}
+  .tractor-art{height:250px}
+  .section-head{display:block}
+  .section-head p{margin-top:8px}
+  footer{display:block}
+  footer div+div{margin-top:10px}
+}
+
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#121611;
+    --surface:#1b2019;
+    --text:#eef2e9;
+    --muted:#aeb8a9;
+    --line:#30382e
+  }
+  .hero{background:linear-gradient(120deg,#182019,#121611)}
+  .photo{background:linear-gradient(135deg,#30392e,#55624e)}
+}
+</style>
+</head>
+
+<body>
+<div class="root">
+
+<header>
+  <div class="brand">
+    TRACTORES <span>DEL SUR</span>
+    <b style="color:var(--gold);font-size:27px;margin-left:8px">🚜</b>
+  </div>
+
+  <nav>
+    <a href="#catalogo">Maquinaria</a>
+    <a href="#empresa">Quiénes somos</a>
+    <a href="#contacto">Contacto</a>
+    <a class="contact" href="#contacto">☎ &nbsp; Contactar</a>
+  </nav>
+</header>
+
 <main>
-<section class="hero"><div><div class="eyebrow">Maquinaria agrícola · Andalucía</div><h1>Encuentra el tractor que necesitas.</h1><p>Catálogo de tractores y maquinaria agrícola seleccionada. Consulta nuestras unidades disponibles y contacta directamente para recibir información.</p><div class="actions"><a class="btn primary" href="#catalogo">Ver maquinaria</a><a class="btn secondary" href="#contacto">Hablar con nosotros</a></div></div><div class="tractor-art" aria-label="Imagen provisional de tractor"></div></section>
-<section id="catalogo"><div class="section-head"><div><h2>Maquinaria disponible</h2><p>Catálogo provisional preparado para añadir las unidades reales.</p></div></div><div class="filters"><select id="brand"><option value="all">Todas las marcas</option><option>John Deere</option><option>New Holland</option><option>Case IH</option></select><select id="sort"><option value="default">Ordenar</option><option value="low">Precio: menor a mayor</option><option value="high">Precio: mayor a menor</option></select></div><div class="grid" id="grid"></div></section>
-<section class="about" id="empresa"><div><div class="eyebrow" style="color:#d8b35a">La empresa</div><h2>Maquinaria para el campo, sin complicaciones.</h2><p>Esta sección está preparada para contar la historia del vendedor, su experiencia y la zona donde trabaja. Cuando tengamos los datos reales, sustituiremos este contenido.</p></div><div class="points"><div class="point"><b>Atención directa</b><span>Contacto por teléfono y WhatsApp.</span></div><div class="point"><b>Unidades seleccionadas</b><span>Información clara de cada máquina.</span></div><div class="point"><b>Servicio cercano</b><span>Atención personalizada para compradores.</span></div></div></section>
-<section id="contacto"><div class="section-head"><div><h2>¿Te interesa una máquina?</h2><p>Contacta para consultar disponibilidad, precio y detalles.</p></div><a class="btn primary" href="tel:+34000000000">Llamar ahora</a></div></section>
-</main><footer><div>© 2026 Tractores del Sur</div><div>Tel. 000 000 000 · WhatsApp disponible</div></footer>
-<div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div class="tag">Ficha provisional</div><h2 id="mtitle"></h2><p id="mdesc" style="color:var(--muted)"></p><div class="detail" id="mdetail"></div><div class="actions"><a class="btn primary" href="tel:+34000000000">Llamar</a><a class="btn secondary" href="#contacto" onclick="closeModal()">Consultar</a></div></div></div>
+
+<section class="hero">
+  <div>
+    <div class="eyebrow">Maquinaria agrícola · Andalucía</div>
+
+    <h1>
+      Maquinaria agrícola<br>
+      <span style="color:var(--green)">de confianza</span>
+    </h1>
+
+    <p>
+      Contamos con una amplia selección de tractores revisados y listos para trabajar.
+      Calidad, garantía y el mejor servicio.
+    </p>
+
+    <div class="actions">
+      <a class="btn primary" href="#catalogo">Ver maquinaria</a>
+      <a class="btn secondary" href="#contacto">Hablar con nosotros</a>
+    </div>
+  </div>
+
+  <div class="tractor-art" aria-label="Tractor agrícola"></div>
+</section>
+
+<section id="catalogo">
+
+  <div class="section-head">
+    <div>
+      <h2>Nuestro catálogo</h2>
+      <p>50 tractores disponibles</p>
+    </div>
+
+    <strong id="countLabel" style="color:var(--muted);font-size:14px">
+      50 tractores
+    </strong>
+  </div>
+
+  <div class="filters">
+
+    <input
+      id="search"
+      placeholder="🔎  Buscar marca o modelo..."
+    >
+
+    <select id="brand">
+      <option value="all">Todas las marcas</option>
+      <option>John Deere</option>
+      <option>New Holland</option>
+      <option>Case IH</option>
+      <option>Fendt</option>
+      <option>Massey Ferguson</option>
+      <option>Deutz-Fahr</option>
+      <option>Claas</option>
+      <option>Kubota</option>
+      <option>Valtra</option>
+      <option>McCormick</option>
+    </select>
+
+    <select id="year">
+      <option value="all">Todos los años</option>
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+      <option value="2019">2019</option>
+    </select>
+
+    <select id="price">
+      <option value="all">Todos los rangos de precio</option>
+      <option value="low">Hasta 60.000 €</option>
+      <option value="mid">60.000–100.000 €</option>
+      <option value="high">Más de 100.000 €</option>
+    </select>
+
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+</section>
+
+<section class="about" id="empresa">
+
+  <div>
+    <div class="eyebrow" style="color:#d8b35a">La empresa</div>
+
+    <h2>Maquinaria para el campo, sin complicaciones.</h2>
+
+    <p>
+      Esta sección está preparada para contar la historia del vendedor,
+      su experiencia y la zona donde trabaja.
+      Cuando tengamos los datos reales, sustituiremos este contenido.
+    </p>
+  </div>
+
+  <div class="points">
+
+    <div class="point">
+      <b>Atención directa</b>
+      <span>Contacto por teléfono y WhatsApp.</span>
+    </div>
+
+    <div class="point">
+      <b>Unidades seleccionadas</b>
+      <span>Información clara de cada máquina.</span>
+    </div>
+
+    <div class="point">
+      <b>Servicio cercano</b>
+      <span>Atención personalizada para compradores.</span>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contacto">
+
+  <div class="section-head">
+    <div>
+      <h2>¿Te interesa una máquina?</h2>
+      <p>Contacta para consultar disponibilidad, precio y detalles.</p>
+    </div>
+
+    <a class="btn primary" href="tel:+34000000000">
+      Llamar ahora
+    </a>
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  <div>© 2026 Tractores del Sur</div>
+  <div>Tel. 000 000 000 · WhatsApp disponible</div>
+</footer>
+
+<div class="modal" id="modal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeModal()">×</button>
+
+    <div class="tag">Ficha provisional</div>
+
+    <h2 id="mtitle"></h2>
+
+    <p id="mdesc" style="color:var(--muted)"></p>
+
+    <div class="detail" id="mdetail"></div>
+
+    <div class="actions">
+      <a class="btn primary" href="tel:+34000000000">Llamar</a>
+      <a class="btn secondary" href="#contacto" onclick="closeModal()">
+        Consultar
+      </a>
+    </div>
+
+  </div>
+
 </div>
+
+</div>
+
 <script>
+
 const tractors=[
- {brand:'John Deere',model:'6155M',year:2020,hours:3200,power:'155 CV',price:58500,desc:'Unidad de ejemplo para mostrar cómo quedará la ficha de cada tractor.'},
- {brand:'New Holland',model:'T7.210',year:2019,hours:4100,power:'210 CV',price:62500,desc:'Unidad de ejemplo preparada para sustituir por los datos reales.'},
- {brand:'Case IH',model:'Puma 185',year:2021,hours:2600,power:'185 CV',price:69500,desc:'Unidad de ejemplo. Las fotos y características reales se incorporarán después.'}
+
+ {brand:'John Deere',model:'5075E',year:2021,hours:1850,power:'75 CV',price:38500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'John Deere',model:'6155M',year:2020,hours:3200,power:'155 CV',price:58500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'John Deere',model:'6175R',year:2019,hours:4100,power:'175 CV',price:72800,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'John Deere',model:'6215R',year:2021,hours:2600,power:'215 CV',price:98500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'John Deere',model:'7R 250',year:2022,hours:1900,power:'250 CV',price:132000,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'New Holland',model:'T5.120',year:2021,hours:2300,power:'120 CV',price:47500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'New Holland',model:'T6.180',year:2020,hours:3500,power:'180 CV',price:66500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'New Holland',model:'T7.210',year:2019,hours:4100,power:'210 CV',price:62500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'New Holland',model:'T7.270',year:2021,hours:2800,power:'270 CV',price:109500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'New Holland',model:'T8.410',year:2022,hours:1700,power:'410 CV',price:158000,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Case IH',model:'Farmall 110A',year:2020,hours:2900,power:'110 CV',price:42500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Case IH',model:'Puma 150',year:2020,hours:3300,power:'150 CV',price:54500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Case IH',model:'Puma 185',year:2021,hours:2600,power:'185 CV',price:69500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Case IH',model:'Maxxum 150',year:2019,hours:3900,power:'150 CV',price:51500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Case IH',model:'Optum 300 CVX',year:2022,hours:1800,power:'300 CV',price:128500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Fendt',model:'312 Vario',year:2020,hours:2800,power:'123 CV',price:59500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Fendt',model:'516 Vario',year:2020,hours:3000,power:'165 CV',price:84500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Fendt',model:'724 Vario',year:2021,hours:2400,power:'246 CV',price:121000,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Fendt',model:'828 Vario',year:2022,hours:1850,power:'287 CV',price:139000,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Fendt',model:'942 Vario',year:2021,hours:1600,power:'415 CV',price:238000,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Massey Ferguson',model:'5711 M',year:2020,hours:3000,power:'110 CV',price:44500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Massey Ferguson',model:'6718 S',year:2019,hours:3600,power:'180 CV',price:57200,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Massey Ferguson',model:'7719 S',year:2020,hours:3100,power:'190 CV',price:68500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Massey Ferguson',model:'8S.245',year:2022,hours:1600,power:'245 CV',price:119000,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Massey Ferguson',model:'9S.425',year:2023,hours:900,power:'425 CV',price:219000,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Deutz-Fahr',model:'5105 DF',year:2021,hours:2200,power:'106 CV',price:39500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Deutz-Fahr',model:'6215 TTV',year:2020,hours:2900,power:'215 CV',price:89500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Deutz-Fahr',model:'7250 TTV',year:2021,hours:2100,power:'247 CV',price:112500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Deutz-Fahr',model:'8280 TTV',year:2022,hours:1500,power:'287 CV',price:138000,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Deutz-Fahr',model:'9340 TTV',year:2020,hours:2600,power:'340 CV',price:146000,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Claas',model:'Axos 3.110',year:2020,hours:3100,power:'112 CV',price:42500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Claas',model:'Arion 660',year:2019,hours:3700,power:'205 CV',price:66500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Claas',model:'Arion 660 Cmatic',year:2021,hours:2400,power:'205 CV',price:78500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Claas',model:'Axion 870',year:2022,hours:1500,power:'295 CV',price:145000,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Claas',model:'Axion 960',year:2021,hours:1750,power:'445 CV',price:205000,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Kubota',model:'M5-112',year:2020,hours:2700,power:'113 CV',price:42500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Kubota',model:'M6-141',year:2021,hours:2300,power:'143 CV',price:58500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Kubota',model:'M7-173',year:2020,hours:3100,power:'175 CV',price:61500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Kubota',model:'M7-174',year:2022,hours:1800,power:'175 CV',price:79500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Kubota',model:'M8-211',year:2021,hours:1900,power:'210 CV',price:99500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Valtra',model:'G135 Versu',year:2021,hours:2200,power:'135 CV',price:61500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Valtra',model:'N175 Direct',year:2020,hours:3200,power:'175 CV',price:76500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Valtra',model:'T174 Versu',year:2019,hours:3800,power:'175 CV',price:68500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Valtra',model:'T214 Direct',year:2022,hours:1500,power:'210 CV',price:108000,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'Valtra',model:'S416 Direct',year:2021,hours:1900,power:'405 CV',price:164000,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'McCormick',model:'X5.120',year:2020,hours:2600,power:'113 CV',price:39500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'McCormick',model:'X6.135',year:2021,hours:2100,power:'130 CV',price:49500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'McCormick',model:'X7.650',year:2020,hours:3300,power:'225 CV',price:78500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'McCormick',model:'X8.680',year:2022,hours:1500,power:'310 CV',price:119500,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'},
+
+ {brand:'McCormick',model:'X8.690',year:2023,hours:900,power:'310 CV',price:135000,image:'',desc:'Modelo real de referencia. Imagen provisional generada para esta ficha.'}
+
 ];
+
 const grid=document.getElementById('grid');
-function render(){let a=tractors.filter(t=>document.getElementById('brand').value==='all'||t.brand===document.getElementById('brand').value);const s=document.getElementById('sort').value;if(s==='low')a.sort((x,y)=>x.price-y.price);if(s==='high')a.sort((x,y)=>y.price-x.price);grid.innerHTML=a.map((t,i)=>`<article class="card"><div class="photo">🚜</div><div class="card-body"><div class="tag">${t.brand}</div><h3>${t.model}</h3><div class="specs"><span>${t.year}</span><span>${t.hours.toLocaleString('es-ES')} h</span><span>${t.power}</span></div><div class="price">${t.price.toLocaleString('es-ES')} €</div><button onclick="openModal(${tractors.indexOf(t)})">Ver ficha</button></div></article>`).join('')}
-function openModal(i){const t=tractors[i];document.getElementById('mtitle').textContent=t.brand+' '+t.model;document.getElementById('mdesc').textContent=t.desc;document.getElementById('mdetail').innerHTML=`<div><small>Año</small><b>${t.year}</b></div><div><small>Horas</small><b>${t.hours.toLocaleString('es-ES')} h</b></div><div><small>Potencia</small><b>${t.power}</b></div><div><small>Precio</small><b>${t.price.toLocaleString('es-ES')} €</b></div>`;document.getElementById('modal').classList.add('open')}
-function closeModal(){document.getElementById('modal').classList.remove('open')}document.getElementById('brand').onchange=render;document.getElementById('sort').onchange=render;render();
-</script></body></html>
+
+const realPhotoUrls=[
+
+'https://commons.wikimedia.org/wiki/Special:FilePath/74-365%20The%20Big%20Green%20Tractor.jpg?width=900',
+
+'https://commons.wikimedia.org/wiki/Special:FilePath/NewHollandTractor.jpg?width=900',
+
+'https://commons.wikimedia.org/wiki/Special:FilePath/Fendt%20Tractor.jpg?width=900',
+
+'https://commons.wikimedia.org/wiki/Special:FilePath/Case%20International%20840%20Traktor.jpg?width=900',
+
+'https://commons.wikimedia.org/wiki/Special:FilePath/Claas%20model%20tractor.jpg?width=900',
+
+'https://commons.wikimedia.org/wiki/Special:FilePath/Valtra%20tractor.jpg?width=900',
+
+'https://commons.wikimedia.org/wiki/Special:FilePath/Massey%20Ferguson%20Tractor.JPG?width=900',
+
+'https://commons.wikimedia.org/wiki/Special:FilePath/Deutz-Fahr%20tractor.JPG?width=900',
+
+'https://commons.wikimedia.org/wiki/Special:FilePath/John%20Deere%208200.jpg?width=900',
+
+'https://commons.wikimedia.org/wiki/Special:FilePath/John%20Deere%206630%20Traktor.jpg?width=900',
+
+'https://commons.wikimedia.org/wiki/Special:FilePath/Case%20IH%20MAXXUM%20110%20tractor.jpg?width=900',
+
+'https://commons.wikimedia.org/wiki/Special:FilePath/Trattore%20Valtra.jpg?width=900'
+
+];
+
+function tractorPhoto(i){
+
+  const body=[
+    '#3f7b3a',
+    '#c94436',
+    '#235fa8',
+    '#d0a12f',
+    '#687b37',
+    '#8c4b32',
+    '#4a6c8a',
+    '#737d83'
+  ][i%8];
+
+  const sky=[
+    '#bfd8e8',
+    '#dbe8ef',
+    '#f0d9bd',
+    '#cfe1cf',
+    '#e2e5e8'
+  ][i%5];
+
+  const field=[
+    '#627b45',
+    '#788e50',
+    '#506a40',
+    '#8d9350',
+    '#4e6946'
+  ][i%5];
+
+  const cab=[
+    '#b8ced6',
+    '#d4e0e4',
+    '#9fb9c4'
+  ][i%3];
+
+  const tilt=[
+    -4,
+    -2,
+    0,
+    2,
+    4
+  ][i%5];
+
+  const svg=`
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+
+    <defs>
+
+      <linearGradient id="sky${i}" x1="0" y1="0" x2="0" y2="1">
+        <stop stop-color="${sky}"/>
+        <stop offset="1" stop-color="#f5f0df"/>
+      </linearGradient>
+
+      <linearGradient id="field${i}" x1="0" y1="0" x2="1" y2="1">
+        <stop stop-color="${field}"/>
+        <stop offset="1" stop-color="#3f5738"/>
+      </linearGradient>
+
+    </defs>
+
+    <rect width="900" height="520" fill="url(#sky${i})"/>
+
+    <circle cx="730" cy="90" r="48"
+      fill="#fff2c2"
+      opacity=".75"/>
+
+    <path
+      d="M0 330 Q180 275 350 330 T700 315 T900 325V520H0Z"
+      fill="url(#field${i})"/>
+
+    <path
+      d="M0 410 Q220 350 430 420 T900 392V520H0Z"
+      fill="#415b36"
+      opacity=".8"/>
+
+    <g transform="translate(450 300) rotate(${tilt})">
+
+      <ellipse
+        cx="0"
+        cy="100"
+        rx="275"
+        ry="34"
+        fill="#2f3b2b"
+        opacity=".25"/>
+
+      <rect
+        x="-190"
+        y="-70"
+        width="310"
+        height="128"
+        rx="24"
+        fill="${body}"/>
+
+      <path
+        d="M-74 -185H55L90 -70H-98Z"
+        fill="${cab}"
+        stroke="#25312c"
+        stroke-width="10"/>
+
+      <rect
+        x="-50"
+        y="-162"
+        width="74"
+        height="60"
+        rx="8"
+        fill="#607b88"
+        opacity=".92"/>
+
+      <rect
+        x="35"
+        y="-155"
+        width="25"
+        height="50"
+        rx="5"
+        fill="#6d8792"
+        opacity=".88"/>
+
+      <path
+        d="M-190 -40H-245L-266 45H-190Z"
+        fill="${body}"/>
+
+      <circle
+        cx="-115"
+        cy="78"
+        r="74"
+        fill="#20251f"/>
+
+      <circle
+        cx="-115"
+        cy="78"
+        r="39"
+        fill="#949985"/>
+
+      <circle
+        cx="82"
+        cy="78"
+        r="51"
+        fill="#20251f"/>
+
+      <circle
+        cx="82"
+        cy="78"
+        r="26"
+        fill="#949985"/>
+
+      <rect
+        x="108"
+        y="18"
+        width="70"
+        height="18"
+        rx="9"
+        fill="#252a24"/>
+
+      <path
+        d="M150 28L238 28L252 7"
+        fill="none"
+        stroke="#252a24"
+        stroke-width="12"
+        stroke-linecap="round"/>
+
+      <rect
+        x="-2"
+        y="-192"
+        width="8"
+        height="14"
+        rx="4"
+        fill="#d36f3c"/>
+
+      <path
+        d="M-152 -65H-115"
+        stroke="#e5e5de"
+        stroke-width="8"
+        stroke-linecap="round"
+        opacity=".55"/>
+
+    </g>
+
+  </svg>`;
+
+  return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg);
+}
+
+function render(){
+
+  const q=
+    document.getElementById('search')
+      .value
+      .trim()
+      .toLowerCase();
+
+  const b=
+    document.getElementById('brand').value;
+
+  const y=
+    document.getElementById('year').value;
+
+  const p=
+    document.getElementById('price').value;
+
+  let a=tractors.filter(t=>
+    (b==='all'||t.brand===b)&&
+    (y==='all'||String(t.year)===y)&&
+    (!q||(t.brand+' '+t.model).toLowerCase().includes(q))
+  );
+
+  if(p==='low')
+    a=a.filter(t=>t.price<=60000);
+
+  if(p==='mid')
+    a=a.filter(t=>t.price>60000&&t.price<=100000);
+
+  if(p==='high')
+    a=a.filter(t=>t.price>100000);
+
+  document.getElementById('countLabel').textContent=
+    `${a.length} tractores`;
+
+  grid.innerHTML=a.map(t=>{
+
+    const idx=tractors.indexOf(t);
+
+    const photo=
+      idx<realPhotoUrls.length
+      ?realPhotoUrls[idx]
+      :tractorPhoto(idx);
+
+    return `
+      <article class="card">
+
+        <div class="photo">
+          <img
+            src="${photo}"
+            alt="Fotografía de tractor agrícola"
+            loading="lazy">
+        </div>
+
+        <div class="card-body">
+
+          <div class="tag">
+            ${t.brand}
+          </div>
+
+          <h3>
+            ${t.model}
+          </h3>
+
+          <div class="specs">
+
+            <span>
+              ▣ ${t.year}
+            </span>
+
+            <span>
+              ◷ ${t.hours.toLocaleString('es-ES')} h
+            </span>
+
+            <span>
+              ϟ ${t.power}
+            </span>
+
+          </div>
+
+          <div class="price">
+            ${t.price.toLocaleString('es-ES')} €
+          </div>
+
+          <button onclick="openModal(${idx})">
+            Ver ficha
+          </button>
+
+        </div>
+
+      </article>
+    `;
+
+  }).join('');
+}
+
+function openModal(i){
+
+  const t=tractors[i];
+
+  document.getElementById('mtitle').textContent=
+    t.brand+' '+t.model;
+
+  document.getElementById('mdesc').textContent=
+    t.desc;
+
+  document.getElementById('mdetail').innerHTML=`
+
+    <div>
+      <small>Año</small>
+      <b>${t.year}</b>
+    </div>
+
+    <div>
+      <small>Horas</small>
+      <b>${t.hours.toLocaleString('es-ES')} h</b>
+    </div>
+
+    <div>
+      <small>Potencia</small>
+      <b>${t.power}</b>
+    </div>
+
+    <div>
+      <small>Precio</small>
+      <b>${t.price.toLocaleString('es-ES')} €</b>
+    </div>
+
+  `;
+
+  document.getElementById('modal')
+    .classList
+    .add('open');
+}
+
+function closeModal(){
+  document.getElementById('modal')
+    .classList
+    .remove('open');
+}
+
+document.getElementById('brand').onchange=render;
+document.getElementById('year').onchange=render;
+document.getElementById('price').onchange=render;
+document.getElementById('search').oninput=render;
+
+render();
+
+</script>
+
+</body>
+</html>
